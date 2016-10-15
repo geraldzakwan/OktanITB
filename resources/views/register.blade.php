@@ -16,11 +16,11 @@
     <h1 class="title"><span class="titlesale">Registrasi</span><span class="titleproject"> Oktan ITB</span></h1><br>
     <h2 class="">Lengkapi data dirimu!</h2><hr><br>
 
-    <form class="sp-form" name="register" id="register" action="{{'dashboardPeserta'}}" method="POST">
+    <form class="sp-form" name="register" id="register" action="{{'register'}}" method="POST">
       
       Nama Lengkap<br>
-      <input type="text" class="sp-textbox" name="fullname" id="fullname" onchange="nullValidation(this.value, this.id, 2)">
-      <span style="color:red; font-size:80%"  id="fullnameMessage">
+      <input type="text" class="sp-textbox" name="nama" id="nama" onchange="nullValidation(this.value, this.id, 2)">
+      <span style="color:red; font-size:80%"  id="namaMessage">
           <br><br>
       </span>
 
@@ -37,12 +37,12 @@
       </span>
 
       Alamat Lengkap<br>
-      <input type="text" class="sp-textbox sp-textboxaddress" name="address" id="address" onchange="nullValidation(this.value, this.id, 2)"><span style="color:red; font-size:80%"  id="addressMessage">
+      <input type="text" class="sp-textbox sp-textboxaddress" name="alamat" id="alamat" onchange="nullValidation(this.value, this.id, 2)"><span style="color:red; font-size:80%"  id="alamatMessage">
           <br><br>
       </span>
 
       Kode Pos<br>
-      <input type="text" class="sp-textbox" name="postalcode" id="postalcode" onchange="isPostalCode(this.value, this.id, 2)"><span style="color:red; font-size:80%"  id="postalcodeMessage">
+      <input type="text" class="sp-textbox" name="kodepos" id="kodepos" onchange="isPostalCode(this.value, this.id, 2)"><span style="color:red; font-size:80%"  id="kodeposMessage">
           <br><br>
       </span>
 
@@ -55,7 +55,7 @@
       <!--
       <input type="text" class="sp-textbox" name="provinsisma" id="provinsismanumber" onchange="nullValidation(this.value, this.id, 2)">
       -->
-      <select class="sp-textboxprovinsi" name="provinsisma" id="provinsisma" onchange="selectRayon(this.value); nullValidation(this.value, this.id, 2);">
+      <select class="sp-textboxprovinsi" name="asalprovinsi" id="asalprovinsi" onchange="selectRayon(this.value); nullValidation(this.value, this.id, 2);">
         <option value=null>Pilih provinsi</option>
         <option value="Aceh">Aceh</option>
         <option value="Bali">Bali</option>
@@ -92,7 +92,7 @@
         <option value="Sumatera Utara">Sumatera Utara</option>
         <option value="Yogyakarta">Yogyakarta</option>
       </select>
-      <span style="color:red; font-size:80%"  id="provinsismaMessage">
+      <span style="color:red; font-size:80%"  id="asalprovinsiMessage">
           <br><br>
       </span>
 
@@ -108,7 +108,7 @@
       <span style="color:red; font-size:80%"  id="rayonMessage"><br><br></span>
 
       Nomor HP (contoh : 081218651998)<br>
-      <input type="text" class="sp-textbox" name="phonenumber" id="phonenumber" onchange="nullValidation(this.value, this.id, 2)"><span style="color:red; font-size:80%"  id="phonenumberMessage">
+      <input type="text" class="sp-textbox" name="nomorhp" id="nomorhp" onchange="nullValidation(this.value, this.id, 2)"><span style="color:red; font-size:80%"  id="nomorhpMessage">
           <br><br>
       </span>
 

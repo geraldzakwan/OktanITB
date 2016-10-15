@@ -13,6 +13,8 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         //
-    	'dashboardPeserta'
+    	'login',
+        'postLogin',
+        'register'
     ];
 }

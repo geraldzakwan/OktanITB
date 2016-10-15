@@ -14,7 +14,7 @@
 			<h2 class="">Please login</h2>
 			<hr>
 			<br>
-			<form name="login" action="loginAction.php" method="POST">
+			<form name="login" action="{{'postLogin'}}" method="POST">
 				Email or Username
 				<br>
 				<input type="text" class="sp-textbox" id="username" name="username" onchange="nullValidation(this.value, this.id, 3)">

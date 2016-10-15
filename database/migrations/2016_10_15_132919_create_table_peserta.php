@@ -14,7 +14,8 @@ class CreateTablePeserta extends Migration
     public function up()
     {
         Schema::create('peserta', function (Blueprint $table) {
-            $table->increments('nomorurut');
+            $table->increments('id');
+            $table->string('nomorurut', 4)->default("0000");
             $table->string('nama', 50);
             $table->string('tempatlahir', 20);
             $table->date('tanggallahir');
@@ -29,7 +30,8 @@ class CreateTablePeserta extends Migration
             $table->string('password', 20);
             $table->string('confirmpassword', 20);
             //Bukti bayar : ID-Rayon-Nama.jpg
-            $table->string('buktibayar', 80);
+            $table->string('buktibayar', 80)->default("0000_Jakarta_Geraldi Dzakwan.jpg");
+            $table->string('approval', 3)->default("No");
             $table->timestamps();
         });
     }

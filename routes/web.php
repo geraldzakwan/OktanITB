@@ -11,18 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Homepage / register / login
+Route::get('/', 'Controller@index');
 
-Route::get('register', function () {
-    return view('register');
-});
+//Untuk ke page register
+Route::get('register', 'Controller@getRegister');
 
-Route::get('login', function () {
-    return view('login');
-});
+//Untuk save akun ke database
+Route::post('register', 'Controller@postRegister');
 
-Route::post('dashboardPeserta', function() {
-	return view('welcome');
-});
+//Untuk ke page login
+Route::get('login', 'Controller@getLogin');
+
+//Untuk sign in
+Route::post('postLogin', 'Controller@postLogin');
+
+//Untuk ke page login, clear session
+Route::get('logout', 'Controller@logout');
+
+//Dashboard peserta
+Route::get('profile', 'Controller@showProfile');
+Route::get('editProfile', 'Controller@showEditProfile');
+Route::get('uploadPhoto', 'Controller@showUploadPhoto');
+
+

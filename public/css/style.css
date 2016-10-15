@@ -1,0 +1,257 @@
+body,p,h1,h2,h3 {
+	font-family: arial;
+}
+
+p.descRayon {
+	font-family: arial;
+	font-size:12px;
+}
+
+/* Style untuk Main.php (Navbar) */
+ul.tab {
+	position: relative;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+}
+
+ul.tab li {
+	float: left;
+	border-right: 1px solid #ccc;
+}
+
+ul.tab li:last-child {
+	border: none;
+}
+
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 10px 0px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 14px;
+    width: 128.5px;
+}
+
+ul.tab li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.tabcontent {
+    display: none;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.active {
+	text-decoration: none;
+	color: #ffffff ;
+	background-color: #4a86e8 ;
+}
+
+hr {
+	width: 100%;
+	border: 1px solid rgba(0,0,0,0.4);
+}
+
+.tbigbold {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.tsmall {
+	font-size: 13px;
+}
+
+.button-like {
+	text-decoration: none;
+	background-color: transparent;
+	color: blue;
+	border: 0px;
+	padding: 3px;
+}
+
+.button-like:hover {
+	text-decoration: none;
+	border: 0px;
+	background-color: transparent;
+	padding: 3px;
+}
+
+input[type=submit].button-buy {
+	text-decoration: none;
+	background-color: transparent;
+	color: green;
+	border: 0px;
+	padding: 3px;
+}
+
+input[type=submit].button-buy:hover {
+	text-decoration: none;
+	border: 0px;
+	background-color: transparent;
+	padding: 3px;
+	color: green;
+}
+
+.button-delete {
+	text-decoration: none;
+	background-color: transparent;
+	color: red;
+	border: 0px;
+	padding: 3px;
+}
+
+.button-delete:hover {
+	text-decoration: none;
+	border: 0px;
+	background-color: transparent;
+	padding: 3px;
+}
+
+.button-edit {
+	text-decoration: none;
+	background-color: transparent;
+	color: yellow;
+	border: 0px;
+	padding: 3px;
+}
+
+.button-edit:hover {
+	text-decoration: none;
+	border: 0px;
+	background-color: transparent;
+	padding: 3px;
+}
+
+input[type=submit] {
+	padding:7px 25px 7px 25px;
+	font-weight: bolder;
+	color: white;
+	background-color: #4a86e8;
+	border: 0px;
+}
+
+input[type=submit]:hover {
+	padding:7px 25px 7px 25px;
+	font-weight: bolder;
+	color: #3a62a5;
+	background-color: rgba(0,0,200,0.15);
+	border: 0px;
+}
+
+input[type=submit]:active {
+  background-color: #3a62a5;
+  transform: translateY(4px);
+}
+
+img.icon{
+	width:72px;
+	height:72px;
+	border: 1px;
+	border-color: #c4c8ce;
+}
+
+.br-radio {
+	margin-left: 35px;
+}
+
+.footerdetail{
+	font-size: 13px;
+	margin-left: 95px;
+}
+
+.greeting {
+	text-align: right;
+}
+
+.logout {
+	text-align: right;
+}
+
+.logout a{
+	color: #cc1212;
+	text-decoration: none;
+}
+
+.sp-container {
+	background-color: rgba(255,255,255,1);
+	max-width:650px;
+	min-height:600px;
+	margin: 5em auto 5em auto;
+	padding: 2em 5em 2em 5em;
+	border: 5px solid rgba(0,0,0,0.3);
+}
+
+.sp-searchbox {
+	width: 230px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.sp-searchbox:focus {
+	width: 80%;
+}
+
+.sp-textbox {
+	width:100%;
+	height: 30px;
+	border: 2px solid rgba(0,0,0,0.2);
+	padding-left: 12px;
+}
+
+select {
+	width:102.5%;
+	height: 35px;
+	border: 2px solid rgba(0,0,0,0.2);
+	padding-left: 12px;
+}
+
+.sp-textboxaddress {
+	height: 50px;
+}
+.sp-textboxquantity {
+	width: 30px;
+	height: 15px;
+}
+
+.sp-submitbutton {
+	float:right;
+	margin-left: 10px;
+}
+
+.title {
+	text-align: center;
+}
+
+.titlesale {
+	color: #980000;
+}
+
+.titleproject {
+	color: #4a86e8;
+}

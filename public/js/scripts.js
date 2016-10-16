@@ -1,5 +1,6 @@
 function validateInDB(str, id, br, whattosearch) {
     if(nullValidation(str, id, br)) {
+        var xmlhttp;
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
@@ -7,15 +8,53 @@ function validateInDB(str, id, br, whattosearch) {
             // code for IE6, IE5
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
+
         var obj = document.getElementById(id + "Message");
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 obj.innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","checkInDB.php?str=" + str + "&whattosearch=" + whattosearch, true);
+
+        xmlhttp.open("GET","validate?str=" + str + "&search=" + whattosearch, true);
+        //xmlhttp.open('POST','validate', true);
+        var sendString = "str=" + str + "&search=" + whattosearch;
+        //xmlhttp.send(sendString);
         xmlhttp.send();
-        if (obj.innerHTML == "<br><br>") {
+
+        if (obj.innerHTML === "<br><br>") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+function validateLogin(str, id, br, whattosearch) {
+    if(nullValidation(str, id, br)) {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        var obj = document.getElementById(id + "Message");
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                obj.innerHTML = this.responseText;
+            }
+        };
+
+        xmlhttp.open("GET","validate?str=" + str + "&search=" + whattosearch, true);
+        //xmlhttp.open('POST','validate', true);
+        var sendString = "str=" + str + "&search=" + whattosearch;
+        //xmlhttp.send(sendString);
+        xmlhttp.send();
+
+        if (obj.innerHTML === "<br><br>") {
             return true;
         } else {
             return false;

@@ -55,8 +55,8 @@
       <!--
       <input type="text" class="sp-textbox" name="provinsisma" id="provinsismanumber" onchange="nullValidation(this.value, this.id, 2)">
       -->
-      <select class="sp-textboxprovinsi" name="asalprovinsi" id="asalprovinsi" onchange="selectRayon(this.value); nullValidation(this.value, this.id, 2);">
-        <option value=null>Pilih provinsi</option>
+      <select class="sp-textboxprovinsi" name="asalprovinsi" id="asalprovinsi" onchange="selectRayon(this.value, this.id); nullValidation(this.value, this.id, 2);">
+        <option value="">Pilih provinsi</option>
         <option value="Aceh">Aceh</option>
         <option value="Bali">Bali</option>
         <option value="Banten">Banten</option>
@@ -103,7 +103,7 @@
       <p class="descRayon">Khusus untuk provinsi dari Indonesia Timur, seluruh pilihan rayon diperbolehkan.</p>
       <select class="sp-textboxrayon" name="rayon" id="rayon" onchange="nullValidation(this.value, this.id, 2);">
         <!-- Bakal diisi sama js selectRayon -->
-        <option value=null>Pilih rayon</option>
+        <option value="">Pilih rayon</option>
       </select>
       <span style="color:red; font-size:80%"  id="rayonMessage"><br><br></span>
 

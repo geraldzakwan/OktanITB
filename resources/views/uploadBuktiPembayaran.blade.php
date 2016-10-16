@@ -20,7 +20,7 @@
 <html>
 
 	<head>
-		<title>Oktan ITB | Your Profile</title>
+		<title>Oktan ITB | Upload Bukti Pembayaran</title>
 	 	<link href="<?php public_path()?>/css/style.css" rel="stylesheet" type = "text/css" />
 	  	<!--<script src="<?php //echo asset('http://laravelapp.dev/js/respond_1_4_2.min.js') ?>"></script>-->
 	  	<script src="<?php public_path()?>/js/scripts.js"></script>
@@ -28,13 +28,14 @@
 
 	<body>
 		<div class="sp-container">
-			<h1 class="title"><span class="titlesale">Upload </span><span class="titleproject">Photo</span></h1><br>
+			<!--<h1 class="title"><span class="titlesale">Upload </span><span class="titleproject">Bukti Pembayaran</
+			span></h1><br>-->
+			<h1 class="title"><span class="titleproject">Upload Bukti Pembayaran</span></h1><br>
 			<p class="greeting"> Hi, <?php echo $uname; echo"!"?></p>
 			<p class="logout"><strong><a href="{{url('logout')}}">logout</a></strong></p>
 			<br>
 			<ul id="nav" class="tab">
-				<li class="tab"><a href="{{url('profile')}}">Your Profile</a></li>
-				<li class="tab"><a class='active' href="{{url('uploadPhoto')}}">Upload Photo</a></li>
+				<li class="tab"><a class='active' href="{{url('uploadBuktiPembayaran')}}">Upload Bukti Pembayaran</a></li>
 				<li class="tab"><a href="{{url('editProfile')}}">Edit Profile</a></li>
 			</ul>
 			<br>

@@ -20,9 +20,31 @@ class Controller extends BaseController
 
     public function index() {
         if (Session::has('sid')) {
-            return view('profile');
+            return redirect('uploadBuktiPembayaran');
         } else {
-            return view('login');
+            return redirect('login');
+        }
+    }
+
+    public function validate(Request $req) {
+        $input = $req;
+        $str = "";
+        $count = 0;
+    
+        if ($input['search'] === 'email') {
+            $count = Peserta::where('email', '=', $input['str'])->count();
+        } else if ($input['search'] === 'username') {
+            $count = Peserta::where('username', '=', $input['str'])->count();
+        }
+    
+        if ($count>0) {
+            if ($input['search'] === 'email') {
+                echo "Email already used<br>";
+            } else if ($input['search'] === 'username' ) {
+                echo "Username already used<br>";
+            }
+        } else {
+            echo "<br><br>";
         }
     }
 
@@ -68,19 +90,27 @@ class Controller extends BaseController
         Peserta::where('id', '=', $id)->update(['approval' => $approval]);
 
        	Session::put('sid', $id);
-        return view('profile');
+        return redirect('uploadBuktiPembayaran');
     }
 
-    public function showProfile() {
-    	return view('profile');
+    public function showUploadBuktiPembayaran() {
+        return view('uploadBuktiPembayaran');
     }
 
-    public function showUploadPhoto() {
-        return view('uploadPhoto');
-    }
-
-    public function showEditProfile() {
+    public function getEditProfile() {
         return view('editProfile');
+    }
+
+    public function postEditProfile(Request $req) {
+        $input = $req->all();
+
+        //Update
+        Peserta::where('username', '=', $input['username'])->update($input);
+
+        $inputData = array (
+            'message' => 'Your profile has been updated'
+        );
+        return view('editProfile') -> with($inputData);
     }
 
     public function logout(Request $req) {
@@ -92,11 +122,22 @@ class Controller extends BaseController
         return view('login');
     }
 
-    public function postLogin() {
+    public function postLogin(Request $req) {
         //Ajax
         //Sementara dummy dulu
-        Session::start();
-        Session::put('sid', 1);
-        return redirect('profile');
+        $input = $req->all();
+    
+        $rec = Peserta::where('username','=',$input['username'])->select('id', 'password')->get()->toArray()[0];
+        
+        if ($input['password'] === $rec['password']) {
+            Session::start();
+            Session::put('sid', $rec['id']);
+            return redirect('uploadBuktiPembayaran');
+        } else {
+            $inputData = array (
+                'errorMessage' => 'Wrong password'
+            );
+            return view('login')->with($inputData);
+        }
     }
 }

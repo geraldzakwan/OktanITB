@@ -14,7 +14,7 @@
 			<h2 class="">Please login</h2>
 			<hr>
 			<br>
-			<form name="login" action="{{'postLogin'}}" method="POST">
+			<form name="login" action="{{'login'}}" method="POST">
 				Email or Username
 				<br>
 				<input type="text" class="sp-textbox" id="username" name="username" onchange="nullValidation(this.value, this.id, 3)">
@@ -24,10 +24,18 @@
 				Password<br>
 				<input type="password" class="sp-textbox" id="password" name="password" onchange="nullValidation(this.value, this.id, 3)">
 				<span style="color:red; font-size:80%"  id="passwordMessage">
-					<br><br><br>
+					<?php
+						if(!empty($errorMessage)) {
+							echo($errorMessage); 
+							echo "<br><br>";
+						} else {
+							echo "<br><br><br>";
+						}
+					?>
 				</span>
 				<input type="submit" class="sp-submitbutton" value="LOGIN">
 			</form>
+			<span value="invalid" id="isValid"></span>
 			<p class="errmsg"></p>
 			<script src="js/scripts.js"></script>
 			<br>

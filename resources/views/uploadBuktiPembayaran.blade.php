@@ -84,7 +84,7 @@
 						<img src="{{ url('image/' . $image) }}" class="fotoBukti" align="left" hspace="10">
 						<br>
 						<br><br><br><br><br><br><br><br><br><br>
-						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br>
 						
 					</div>
 				@else
@@ -102,7 +102,7 @@
 			    <p class="descRayon">Ukuran file harap tidak melebihi 500KB.</p>
 			    <p class="descRayon">Jika melebihi, silahkan cari web untuk mengecilkan ukuran file jpg.</p>
 
-				<input type="file" name="fotoBukti" id="fotoBukti" onchange="if(nullValidation(this.value, this.id, 1)) {checkExtension(this.id, this.value);}"> <br><br>
+				<input type="file" name="fotoBukti" id="fotoBukti" onchange="if(nullValidation(this.value, this.id, 3)) {checkExtension(this.id, this.value);}"> <br>
 				<span style="color:red; font-size:80%"  id="fotoBuktiMessage">
 		          <br><br>
 		      	</span>

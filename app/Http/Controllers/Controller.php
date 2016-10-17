@@ -48,6 +48,28 @@ class Controller extends BaseController
         }
     }
 
+    public function checkIfExist(Request $req) {
+        $input = $req;
+        $str = "";
+        $count = 0;
+    
+        if ($input['search'] === 'email') {
+            $count = Peserta::where('email', '=', $input['str'])->count();
+        } else if ($input['search'] === 'username') {
+            $count = Peserta::where('username', '=', $input['str'])->count();
+        }
+    
+        if ($count===0) {
+            if ($input['search'] === 'email') {
+                echo "Email not found<br><br>";
+            } else if ($input['search'] === 'username' ) {
+                echo "Username not found<br><br>";
+            }
+        } else {
+            echo "<br><br>";
+        }
+    }
+
     public function getRegister() {
         return view('register');
     }
@@ -81,20 +103,49 @@ class Controller extends BaseController
         //Buktibayar
         //nanti nama filenya tuh Nomor Urut-Rayon-Nama
         $input['nomorurut'] = $nomorurut;
-        $buktibayar = $nomorurut.$rayon.$nama;
+        //$buktibayar = "Not yet uploaded";
         $approval = "No";
 
         //Tambahkan 3 info tersebut
         Peserta::where('id', '=', $id)->update(['nomorurut' => $nomorurut]);
-        Peserta::where('id', '=', $id)->update(['buktibayar' => $buktibayar]);
+        //Peserta::where('id', '=', $id)->update(['buktibayar' => $buktibayar]);
         Peserta::where('id', '=', $id)->update(['approval' => $approval]);
 
        	Session::put('sid', $id);
         return redirect('uploadBuktiPembayaran');
     }
 
-    public function showUploadBuktiPembayaran() {
+    public function getUploadBuktiPembayaran() {
+        //print_r("masuk sini");
         return view('uploadBuktiPembayaran');
+    }
+
+    public function postUploadBuktiPembayaran(Request $req) {
+        $target_dir = public_path()."\image";
+
+        $input = $req->all();
+        if ($req->hasFile('fotoBukti')) {
+            $foto = $req->file('fotoBukti');
+            $extension = $foto->getClientOriginalExtension();
+
+            if ($req->file('fotoBukti')->isValid()) {
+                //query
+                $sid = Session::get('sid');             
+                $record = Peserta::where('id', '=', $sid)->select('nomorurut', 'rayon', 'nama')->get()[0];
+                $photo_name = $record['nomorurut']."_".$record['rayon']."_".$record['nama'].".jpg";
+
+                //Update nama di basis data
+                Peserta::where('id','=',$sid)->update(['buktibayar' => $photo_name]);
+                //Upload image ke storage
+                $upload_path = $target_dir;
+                $req->file('fotoBukti')->move($upload_path, $photo_name);
+            }
+        }
+        
+        $inputData = array (
+            'message' => 'Bukti pembayaran sudah berhasil diupload'
+        );
+        return view('uploadBuktiPembayaran') -> with($inputData);
     }
 
     public function getEditProfile() {
@@ -127,15 +178,22 @@ class Controller extends BaseController
         //Sementara dummy dulu
         $input = $req->all();
     
-        $rec = Peserta::where('username','=',$input['username'])->select('id', 'password')->get()->toArray()[0];
-        
-        if ($input['password'] === $rec['password']) {
-            Session::start();
-            Session::put('sid', $rec['id']);
-            return redirect('uploadBuktiPembayaran');
+        $rec = Peserta::where('username','=',$input['username'])->select('id', 'password')->count();
+        if ($rec > 0) {
+            $record = Peserta::where('username','=',$input['username'])->select('id', 'password')->get()->toArray()[0];
+            if ($input['password'] === $record['password']) {
+                Session::start();
+                Session::put('sid', $record['id']);
+                return redirect('uploadBuktiPembayaran');
+            } else {
+                $inputData = array (
+                    'errorMessage' => 'Wrong password'
+                );
+                return view('login')->with($inputData);
+            }
         } else {
             $inputData = array (
-                'errorMessage' => 'Wrong password'
+                'errorMessage' => 'No username found'
             );
             return view('login')->with($inputData);
         }

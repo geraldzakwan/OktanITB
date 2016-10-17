@@ -30,16 +30,19 @@ function selectRayon(value, id) {
 			value = "Aceh";
 		}
 	} 
-	else if (id === 'asalprovinsi'){
-		temp = value;
+	else if (id === 'asalprovinsi'){		
 		var valueArray = ["Aceh", "Bali", "Banten", "Bengkulu", "Gorontalo", "Jakarta", "Jambi",
 		"Jawa Barat", "Jawa Tengah", "Jawa Timur", "Kalimantan Barat", "Kalimantan Selatan", 
 		"Kalimantan Tengah", "Kalimantan Timur", "Kalimantan Utara", "Kep Bangka Belitung",
 		"Kep Riau", "Lampung", "Maluku", "Maluku Utara", "Nusa Tenggara Barat", "Nusa Tenggara Timur",
 		"Papua", "Papua Barat", "Riau", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Tenggara",
 		"Sulawesi Utara", "Sulawesi Barat", "Sumatera Selatan", "Sumatera Utara", "Yogyakarta"];
+		
+		var index = valueArray.indexOf(value);
+		valueArray.splice(index, 1);
+		valueArray.unshift(value);
+
 		setRayon(id, valueArray);
-		value = temp;
 	}
 
 	//document.getElementById("rayon").innerHTML = "<option value='Aceh'> Aceh </option>";		

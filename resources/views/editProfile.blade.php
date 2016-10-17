@@ -143,7 +143,7 @@
 		      </span>
 
 		      <span value="invalid" id="isValid"></span>
-		      <input type="submit" class="sp-submitbutton" value="UPDATE" onclick="return confirmJumlah('register', 1) && confirmAction();"><br><br>
+		      <input type="submit" class="sp-submitbutton" value="UPDATE" onclick="return confirmJumlah('editProfile', 1) && confirmAction();"><br><br>
 
 		    </form>
 		</div>

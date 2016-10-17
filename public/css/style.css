@@ -167,6 +167,13 @@ img.icon{
 	border-color: #c4c8ce;
 }
 
+img.fotoBukti{
+	width:216px;
+	height:360px;
+	border: 1px;
+	border-color: #c4c8ce;
+}
+
 .br-radio {
 	margin-left: 35px;
 }
@@ -193,6 +200,15 @@ img.icon{
 	background-color: rgba(255,255,255,1);
 	max-width:650px;
 	min-height:600px;
+	margin: 5em auto 5em auto;
+	padding: 2em 5em 2em 5em;
+	border: 5px solid rgba(0,0,0,0.3);
+}
+
+.sp-containerupload {
+	background-color: rgba(255,255,255,1);
+	max-width:650px;
+	min-height:1000px;
 	margin: 5em auto 5em auto;
 	padding: 2em 5em 2em 5em;
 	border: 5px solid rgba(0,0,0,0.3);
@@ -242,6 +258,11 @@ select {
 .sp-submitbutton {
 	float:right;
 	margin-left: 10px;
+}
+
+.sp-uploadbutton {
+	float:left;
+	margin-right: 10px;
 }
 
 .title {

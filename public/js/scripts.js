@@ -30,6 +30,39 @@ function validateInDB(str, id, br, whattosearch) {
     }
 }
 
+function checkInDB(str, id, br, whattosearch) {
+    if(nullValidation(str, id, br)) {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        var obj = document.getElementById(id + "Message");
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                obj.innerHTML = this.responseText;
+            }
+        };
+
+        xmlhttp.open("GET","checkIfExist?str=" + str + "&search=" + whattosearch, true);
+        //xmlhttp.open('POST','validate', true);
+        var sendString = "str=" + str + "&search=" + whattosearch;
+        //xmlhttp.send(sendString);
+        xmlhttp.send();
+
+        if (obj.innerHTML === "<br><br>") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+
 function validateLogin(str, id, br, whattosearch) {
     if(nullValidation(str, id, br)) {
         var xmlhttp;
@@ -403,4 +436,22 @@ function confirmJumlah(idform, jumlahbtn) {
 function redirect(str) {
     alert("KADUT");
     window.location(str);
+}
+
+function checkExtension(id, value) {
+    var last = value.length;
+        
+    if(value.substring(last-3,last) === "jpg") {
+        document.getElementById(id+"Message").innerHTML = "<br><br>";
+        x = true;
+    } else {
+        document.getElementById(id+"Message").innerHTML = "Uploadlah file berekstensi .jpg <br><br>";
+        x = false;
+    }
+
+    if (x) {
+        document.getElementById("isValid").value = "valid";
+    } else {
+        document.getElementById("isValid").value = "invalid";
+    }   
 }

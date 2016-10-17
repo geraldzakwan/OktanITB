@@ -13,9 +13,11 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         //
-    	'login',
         'register',
+    	'login',
+        'uploadBuktiPembayaran',
         'editProfile',
-        'validate'
+        'validate',
+        'checkIfExist'
     ];
 }

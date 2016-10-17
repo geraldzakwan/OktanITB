@@ -29,13 +29,20 @@ Route::get('logout', 'Controller@logout');
 
 //Dashboard peserta
 
+//Edit
 Route::get('editProfile', 'Controller@getEditProfile');
 Route::post('editProfile', 'Controller@postEditProfile');
 
-Route::get('uploadBuktiPembayaran', 'Controller@showUploadBuktiPembayaran');
+//Upload image
+Route::get('uploadBuktiPembayaran', 'Controller@getUploadBuktiPembayaran');
+Route::post('uploadBuktiPembayaran', 'Controller@postUploadBuktiPembayaran');
 
 //Untuk AJAX validation
 Route::get('validate', 'Controller@validate');
 Route::post('validate', 'Controller@validate');
+
+//Untuk AJAX validation
+Route::get('checkIfExist', 'Controller@checkIfExist');
+Route::post('checkIfExist', 'Controller@checkIfExist');
 
 

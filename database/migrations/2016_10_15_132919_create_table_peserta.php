@@ -30,7 +30,7 @@ class CreateTablePeserta extends Migration
             $table->string('password', 20);
             $table->string('confirmpassword', 20);
             //Bukti bayar : ID-Rayon-Nama.jpg
-            $table->string('buktibayar', 80)->default("0000_Jakarta_Geraldi Dzakwan.jpg");
+            $table->string('buktibayar', 80)->default("Not yet uploaded");
             $table->string('approval', 3)->default("No");
             $table->timestamps();
         });

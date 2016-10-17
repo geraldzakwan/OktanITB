@@ -40,7 +40,8 @@
 			<p class="errmsg"></p>
 			<script src="js/scripts.js"></script>
 			<br>
-			<p><strong>Belum memiliki akun? Registrasi <a href="{{url('register')}}">disini</a></strong></p>
+			<!--<p><strong>Belum memiliki akun? Registrasi <a href="{{url('register')}}">disini</a></strong></p>-->
+			<p>Belum memiliki akun? Registrasi <a href="{{url('register')}}"><strong>disini</strong></a></p>
 		</div>
 	</div>
 </body>

@@ -19,7 +19,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index() {
-        if (Session::has('sid')) {
+        if (Session::has('sid') && Session::get('sid')!=12061998) {
             return redirect('uploadBuktiPembayaran');
         } else {
             return redirect('login');
@@ -177,6 +177,12 @@ class Controller extends BaseController
         //Ajax
         //Sementara dummy dulu
         $input = $req->all();
+
+        if($input['username'] === 'administratoroktanitb' && $input['password'] === 'geraldidzakwan') {
+            Session::start();
+            Session::put('sid', 12061998);
+            return view('dashboard');
+        }
     
         $rec = Peserta::where('username','=',$input['username'])->select('id', 'password')->count();
         if ($rec > 0) {
@@ -197,5 +203,22 @@ class Controller extends BaseController
             );
             return view('login')->with($inputData);
         }
+    }
+
+    public function getDashboard() {
+        return view('dashboard');
+    }
+
+    public function getDetail() {
+        return view('details');
+    }
+
+    public function postDetail(Request $req) {
+        
+    }
+
+    public function approve(Request $req) {
+        $input = $req;
+        Peserta::where('id', '=', $input['id'])->update(['approval' => $input['value']]);
     }
 }

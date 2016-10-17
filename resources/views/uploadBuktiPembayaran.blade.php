@@ -12,6 +12,11 @@
 	use View;
 	use Session;
 
+	if (!Session::has('sid')) {
+		echo "<p>FORBIDDEN ACCESS YOU BITCH</p>";
+		die();
+	}
+
 	$id = Session::get('sid');
 	$record = Peserta::where('id', '=', $id)->select('username', 'approval', 'buktibayar')->get()->toArray()[0]; 
 	$uname = $record['username'];
@@ -38,11 +43,21 @@
 			<p class="logout"><strong><a href="{{url('logout')}}">logout</a></strong></p>
 			<br>
 			<ul id="nav" class="tab">
-				<li class="tab"><a class='active' href="{{url('uploadBuktiPembayaran')}}">Upload Bukti Pembayaran</a></li>
-				<li class="tab"><a href="{{url('editProfile')}}">Edit Profile</a></li>
+				<li class="tab"><a class='active' href="{{url('uploadBuktiPembayaran')}}"><strong>Upload Bukti Pembayaran</strong></a></li>
+				<li class="tab"><a href="{{url('editProfile')}}">Edit Profil</a></li>
 			</ul>
 			<br>
   			<br>
+
+  			<?php if(!empty($message)) {
+			  	echo "<span style='color:green; font-size:80%'>";
+			  	echo "<strong>";
+			  	echo $message;
+			  	echo "</strong>";
+			  	echo "</span>";
+			  	echo "<br><br>";
+			  	}
+		  	?>
 
   			Approval Pembayaran :
   			<?php
@@ -58,15 +73,7 @@
 
   			<br><br>
 
-  			<form class="sp-form" name="uploadBuktiPembayaran" id="uploadBuktiPembayaran" action="{{'uploadBuktiPembayaran'}}" enctype="multipart/form-data" method="POST">
-
-  				<?php if(!empty($message)) {
-	  			  	echo "<span style='color:green; font-size:80%'>";
-	  			  	echo $message;
-	  			  	echo "</span>";
-	  			  	echo "<br><br>";
-	  			  	}
-  			  	?> 			
+  			<form class="sp-form" name="uploadBuktiPembayaran" id="uploadBuktiPembayaran" action="{{'uploadBuktiPembayaran'}}" enctype="multipart/form-data" method="POST"> 			
 	  			
 	  			<?php  
 					if($buktibayar != 'Not yet uploaded') {	  					

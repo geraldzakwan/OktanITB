@@ -137,7 +137,8 @@
 
     </form>
     <p class="errmsg"></p><br>
-    <p><strong>Sudah mendaftar? Login <a href="{{url('login')}}">disini</a></strong></p>
+    <!--<p><strong>Sudah mendaftar? Login <a href="{{url('login')}}">disini</a></strong></p>-->
+    <p>Sudah mendaftar? Login <a href="{{url('login')}}"><strong>disini</strong></a></p>
   </div>
 </body>
 </html>

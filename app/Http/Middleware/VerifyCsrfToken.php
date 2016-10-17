@@ -18,6 +18,8 @@ class VerifyCsrfToken extends BaseVerifier
         'uploadBuktiPembayaran',
         'editProfile',
         'validate',
-        'checkIfExist'
+        'checkIfExist',
+        'dashboard',
+        'detail'
     ];
 }

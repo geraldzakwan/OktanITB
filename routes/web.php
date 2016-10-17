@@ -45,4 +45,15 @@ Route::post('validate', 'Controller@validate');
 Route::get('checkIfExist', 'Controller@checkIfExist');
 Route::post('checkIfExist', 'Controller@checkIfExist');
 
+//Untuk admin dashboard
+Route::get('dashboard', 'Controller@getDashboard');
+
+//Untuk detail product
+Route::get('details', 'Controller@getDetail');
+
+//Untuk approve AJAX
+Route::get('approve','Controller@approve');
+Route::post('approve','Controller@approve');
+
+
 

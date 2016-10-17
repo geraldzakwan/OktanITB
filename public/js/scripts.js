@@ -107,16 +107,16 @@ function addLikes(likesbuttonid, uid) {
     var likes = document.getElementById("likes" + pid);
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            likes.innerHTML = this.responseText;
+            //likes.innerHTML = this.responseText;
         }
     };
     var likesbutton = document.getElementById(likesbuttonid);
-    if (likesbutton.value == "LIKE") {
-        likesbutton.value = "UNLIKE";
+    if (likesbutton.value == "Yes") {
+        likesbutton.value = "No";
     } else {
-        likesbutton.value = "LIKE";
+        likesbutton.value = "Yes";
     }
-    xmlhttp.open("GET","likeClickedAction.php?pid=" + pid + "&uid=" + uid + "&value=" + likesbutton.value, true);
+    xmlhttp.open("GET","approve?id=" + uid + "&value=" + likesbutton.value, true);
     xmlhttp.send();
 }
 

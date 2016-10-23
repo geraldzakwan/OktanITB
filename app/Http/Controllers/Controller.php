@@ -221,4 +221,15 @@ class Controller extends BaseController
         $input = $req;
         Peserta::where('id', '=', $input['id'])->update(['approval' => $input['value']]);
     }
+
+
+    public function printPDF() {  
+        $data = array (
+            'data1' => "test",
+            'data2' => "test2"
+        );
+        $pdf = \PDF::loadView('printPDF', $data);
+        //$fileName = ;
+        return $pdf->download('invoice.pdf');
+    }
 }

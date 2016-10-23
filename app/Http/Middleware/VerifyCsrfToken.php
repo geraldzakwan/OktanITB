@@ -20,6 +20,7 @@ class VerifyCsrfToken extends BaseVerifier
         'validate',
         'checkIfExist',
         'dashboard',
-        'detail'
+        'detail',
+        'printPDF'
     ];
 }

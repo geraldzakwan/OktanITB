@@ -15,7 +15,7 @@
 			<hr>
 			<br>
 			<form name="login" action="{{'login'}}" method="POST">
-				Username
+				Nama Tim
 				<br>
 				<input type="text" class="sp-textbox" id="username" name="username" onchange="if(nullValidation(this.value, this.id, 3)) //{checkInDB(this.value, this.id, 3, 'username');}">
 				<span style="color:red; font-size:80%"  id="usernameMessage">

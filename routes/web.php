@@ -55,5 +55,8 @@ Route::get('details', 'Controller@getDetail');
 Route::get('approve','Controller@approve');
 Route::post('approve','Controller@approve');
 
+//Untuk printPDF
+Route::get('printPDF', 'Controller@testPDF');
+Route::post('printPDF', 'Controller@testPDF');
 
 
